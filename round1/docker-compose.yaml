@@ -1,0 +1,5 @@
+version: '3.0'
+
+services: 
+    round1:
+        image: hello-world:latest

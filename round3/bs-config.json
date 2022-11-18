@@ -1,0 +1,6 @@
+{
+   "server": {
+     "baseDir": "./liteServ"
+   },
+   "open": false
+}

@@ -1,0 +1,11 @@
+version: '3.0'
+
+services:
+    round3:
+        image: node:latest
+        working_dir: /jsonServ
+        volumes:
+        - ./:/jsonServ
+        ports: 
+        - 7000:3000
+        command: bash script_pipe.sh

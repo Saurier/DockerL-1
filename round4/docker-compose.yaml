@@ -1,0 +1,35 @@
+version: "3.0"
+
+services:
+    jsonServer:
+        image: node:latest
+        working_dir: /jsonServ
+        volumes:
+        - ./jsonServF:/jsonServ
+        expose: 
+            - 8000
+        command: bash script_pipe.sh
+
+    liteServer:
+        image: node:latest
+        working_dir: /liteServ
+        volumes:
+        - ./liteServF:/liteServ
+        expose:
+            - 3000
+        command: bash script_pipe.sh
+        
+    nginx:
+        image: nginx
+        volumes:
+        - ./template:/etc/nginx/templates
+        ports:
+        - "8080:80"
+        environment:
+        - NGINX_HOST=0.0.0.0
+        - NGINX_PORT=80
+        links: 
+        - jsonServer
+        - liteServer
+       
+
